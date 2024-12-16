@@ -3,7 +3,12 @@
 import { useState } from 'react';
 import MainMenu from './components/main-menu';
 import MenuTitle from './components/menu-title';
-import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer';
 import { MenuIcon } from 'lucide-react';
 import { useMediaQuery } from '@/hooks/use-media-query';
 
@@ -27,10 +32,11 @@ export default function DashboardLayout({
             onClose={() => setMobileMenuOpen(false)}
             onOpenChange={(open) => setMobileMenuOpen(open)}
           >
-            <DrawerTrigger>
+            <DrawerTrigger aria-hidden={mobileMenuOpen ? 'true' : 'false'}>
               <MenuIcon />
             </DrawerTrigger>
-            <DrawerContent>
+            <DrawerTitle className='hidden'></DrawerTitle>
+            <DrawerContent aria-describedby=''>
               <MainMenu />
             </DrawerContent>
           </Drawer>
