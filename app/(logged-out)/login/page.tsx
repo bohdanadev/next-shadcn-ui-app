@@ -42,7 +42,7 @@ export default function LoginPage() {
   });
 
   const handleSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log('login validation passed');
+    console.log('login validation passed', data.email);
     router.push('/dashboard');
   };
 
